@@ -61,11 +61,14 @@ int printf(const char* restrict format, ...) {
 			if (!print(str, len))
 				return -1;
 			written += len;
-		} else if (*format == 'd') {
+		} else if (*format == 'd' || *format == 'x') {
 			format++;
 			int num = va_arg(parameters, int);
 			char buf[100];
-			itoa(num, buf, 10);
+			if (*format == 'd')
+				itoa(num, buf, 10);
+			else if (*format == 'x')
+				itoa(num, buf, 16);
 
 			size_t len = strlen(buf);
 			if (maxrem < len) {
