@@ -62,7 +62,6 @@ int printf(const char* restrict format, ...) {
 				return -1;
 			written += len;
 		} else if (*format == 'd' || *format == 'x') {
-			format++;
 			int num = va_arg(parameters, int);
 			char buf[100];
 			if (*format == 'd')
@@ -77,6 +76,7 @@ int printf(const char* restrict format, ...) {
 			}
 			if (!print(buf, len))
 				return -1;
+			format++;
 			written += len;
 		} else {
 			format = format_begun_at;
