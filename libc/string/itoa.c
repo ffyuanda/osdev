@@ -54,3 +54,31 @@ char* itoa(int num, char* str, int base)
  
     return str;
 }
+
+char* uitoa(unsigned num, char* str, unsigned base) {
+
+    unsigned i = 0;
+
+    /* Handle 0 explicitly, otherwise empty string is
+     * printed for 0 */
+    if (num == 0) {
+        str[i++] = '0';
+        str[i] = '\0';
+        return str;
+    }
+
+    // Process individual digits
+    unsigned rem;
+    while (num != 0) {
+        rem = num % base;
+        str[i++] = (rem > 9) ? (rem - 10) + 'a' : rem + '0';
+        num = num / base;
+    }
+
+    str[i] = '\0'; // Append string terminator
+
+    // Reverse the string
+    reverse(str, i);
+
+    return str;
+}

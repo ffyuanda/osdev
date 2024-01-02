@@ -16,6 +16,9 @@ void* memset(void*, int, size_t);
 size_t strlen(const char*);
 char* itoa(int num, char* buf, int base);
 
+/* unsigned version of itoa. */
+char* uitoa(unsigned num, char* str, unsigned base);
+
 #ifdef __cplusplus
 }
 #endif
