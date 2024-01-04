@@ -37,12 +37,16 @@ $(ARCHDIR)/crtbegin.o \
 $(KERNEL_OBJS) \
 $(ARCHDIR)/crtend.o \
 $(ARCHDIR)/crtn.o \
+$(ARCHDIR)/gdt.o \
+$(ARCHDIR)/descriptor_tables.o \
 
 LINK_LIST=\
 $(LDFLAGS) \
 $(ARCHDIR)/crti.o \
 $(ARCHDIR)/crtbegin.o \
 $(KERNEL_OBJS) \
+$(ARCHDIR)/gdt.o \
+$(ARCHDIR)/descriptor_tables.o \
 $(LIBS) \
 $(ARCHDIR)/crtend.o \
 $(ARCHDIR)/crtn.o \
