@@ -39,6 +39,8 @@ $(ARCHDIR)/crtend.o \
 $(ARCHDIR)/crtn.o \
 $(ARCHDIR)/gdt.o \
 $(ARCHDIR)/descriptor_tables.o \
+$(ARCHDIR)/isr.o \
+$(ARCHDIR)/idt.o \
 
 LINK_LIST=\
 $(LDFLAGS) \
@@ -47,6 +49,8 @@ $(ARCHDIR)/crtbegin.o \
 $(KERNEL_OBJS) \
 $(ARCHDIR)/gdt.o \
 $(ARCHDIR)/descriptor_tables.o \
+$(ARCHDIR)/isr.o \
+$(ARCHDIR)/idt.o \
 $(LIBS) \
 $(ARCHDIR)/crtend.o \
 $(ARCHDIR)/crtn.o \
