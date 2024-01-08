@@ -90,6 +90,7 @@ static void init_idt() {
 	idt_set_entry(31, (uint32_t)isr31, 0x08, 0x8E);
 
 	idt_flush((uint32_t)&idt_ptr);
+	asm volatile ("sti");
 }
 
 void init_descriptor_tables() {
