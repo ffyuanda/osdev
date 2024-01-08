@@ -65,26 +65,26 @@ ISR_NOERRCODE 31
 # up for kernel mode segments, calls the C-level fault handler,
 # and finally restores the stack frame.
 isr_common_stub:
-	pusha # push all general registers
+	// pusha # push all general registers
 
-	mov %ds, %ax
-	push %eax # save the data segment descriptor
+	// mov %ds, %ax
+	// push %eax # save the data segment descriptor
 
-	mov $0x10, %ax # load the kernel data segment descriptor
-	mov %ax, %ds
-	mov %ax, %es
-	mov %ax, %fs
-	mov %ax, %gs
+	// mov $0x10, %ax # load the kernel data segment descriptor
+	// mov %ax, %ds
+	// mov %ax, %es
+	// mov %ax, %fs
+	// mov %ax, %gs
 
 	call isr_handler
 
-	pop %eax # restore the original data segment descriptor
-	mov %ax, %ds
-	mov %ax, %es
-	mov %ax, %fs
-	mov %ax, %gs
+	// pop %eax # restore the original data segment descriptor
+	// mov %ax, %ds
+	// mov %ax, %es
+	// mov %ax, %fs
+	// mov %ax, %gs
 
-	popa # restore all general registers
+	// popa # restore all general registers
 	add $8, %esp # clean up the pushed error code and ISR number
 	sti # enable interrupt
 	iret # return from interrupt
