@@ -1,4 +1,4 @@
-#include <arch/i386/descriptor_tables.h>
+#include "descriptor_tables.h"
 #include <stdio.h>
 #include <string.h>
 

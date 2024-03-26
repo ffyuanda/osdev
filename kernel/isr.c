@@ -1,4 +1,4 @@
-#include <arch/i386/isr.h>
+#include "isr.h"
 #include <stdio.h>
 
 void isr_handler(registers_t regs) {
