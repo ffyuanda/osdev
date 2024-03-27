@@ -77,12 +77,11 @@ clean:
 	rm -f $(OBJS) *.o */*.o */*/*.o
 	rm -f $(OBJS:.o=.d) *.d */*.d */*/*.d
 
-# install: install-headers install-kernel
-install: install-kernel
+install: install-headers install-kernel
 
-# install-headers:
-# 	mkdir -p $(DESTDIR)$(INCLUDEDIR)
-# 	cp -R --preserve=timestamps include/. $(DESTDIR)$(INCLUDEDIR)/.
+install-headers:
+	mkdir -p $(DESTDIR)$(INCLUDEDIR)
+	cp -R --preserve=timestamps include/. $(DESTDIR)$(INCLUDEDIR)/.
 
 install-kernel: myos.kernel
 	mkdir -p $(DESTDIR)$(BOOTDIR)
