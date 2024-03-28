@@ -2,3 +2,7 @@
 isodir
 sysroot
 .vscode
+*.o
+*.d
+*.a
+*.kernel
