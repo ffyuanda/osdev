@@ -124,73 +124,9 @@ install: install-headers install-libs install-kernel
 run: install
 	qemu-system-i386 -cdrom myos.iso
 
+debug: install
+	qemu-system-i386 -s -S -kernel myos.kernel &
+	gdb
 
 -include $(OBJS:.o=.d)
 -include $(LIBK_OBJS:.o=.d)
-
-# LIBC
-# FREEOBJS=\
-# $(ARCH_FREEOBJS) \
-# printf.o \
-# putchar.o \
-# puts.o \
-# abort.o \
-# memcmp.o \
-# memcpy.o \
-# memmove.o \
-# memset.o \
-# strlen.o \
-# itoa.o \
-
-# HOSTEDOBJS=\
-# $(ARCH_HOSTEDOBJS) \
-
-# OBJS=\
-# $(FREEOBJS) \
-# $(HOSTEDOBJS) \
-
-# LIBK_OBJS=$(FREEOBJS:.o=.libk.o)
-
-# #BINARIES=libc.a libk.a # Not ready for libc yet.
-# BINARIES=libk.a
-
-# .PHONY: all clean install install-headers install-libs
-# .SUFFIXES: .o .libk.o .c .S
-
-# all: $(BINARIES)
-
-# libc.a: $(OBJS)
-# 	$(AR) rcs $@ $(OBJS)
-
-# libk.a: $(LIBK_OBJS)
-# 	$(AR) rcs $@ $(LIBK_OBJS)
-
-# %.o: %.c
-# 	$(CC) -MD -c $< -o $@ -std=gnu11 $(CFLAGS) $(CPPFLAGS)
-
-# %.o: %.S
-# 	$(CC) -MD -c $< -o $@ $(CFLAGS) $(CPPFLAGS)
-
-# %.libk.o: %.c
-# 	$(CC) -MD -c $< -o $@ -std=gnu11 $(LIBK_CFLAGS) $(LIBK_CPPFLAGS)
-
-# %.libk.o: %.S
-# 	$(CC) -MD -c $< -o $@ $(LIBK_CFLAGS) $(LIBK_CPPFLAGS)
-
-# clean:
-# 	rm -f $(BINARIES) *.a
-# 	rm -f $(OBJS) $(LIBK_OBJS) *.o */*.o */*/*.o
-# 	rm -f $(OBJS:.o=.d) $(LIBK_OBJS:.o=.d) *.d */*.d */*/*.d
-
-# install: install-headers install-libs
-
-# install-headers:
-# 	mkdir -p $(SYSROOT)$(INCLUDEDIR)
-# 	cp -R --preserve=timestamps include/. $(SYSROOT)$(INCLUDEDIR)/.
-
-# install-libs: $(BINARIES)
-# 	mkdir -p $(SYSROOT)$(LIBDIR)
-# 	cp $(BINARIES) $(SYSROOT)$(LIBDIR)
-
-# -include $(OBJS:.o=.d)
-# -include $(LIBK_OBJS:.o=.d)
