@@ -27,6 +27,8 @@ KERNEL_OBJS=\
 boot.o \
 tty.o \
 kernel.o \
+vm.o \
+paging.o \
 
 OBJS=\
 crti.o \
