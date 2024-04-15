@@ -29,6 +29,7 @@ tty.o \
 kernel.o \
 vm.o \
 paging.o \
+mmu.o \
 
 OBJS=\
 crti.o \

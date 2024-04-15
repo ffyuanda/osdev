@@ -9,6 +9,7 @@ void kernel_main(void) {
 	init_descriptor_tables();
 	init_paging();
 	printf("Hello, kernel World! AGAIN!\n");
+	printf("kernel end: %x", kernel_end);
 	*(unsigned char *)(0x3FFFFF) = 'A';
 	// asm volatile ("int $3");
 }
