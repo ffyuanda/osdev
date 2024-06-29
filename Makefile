@@ -106,7 +106,7 @@ clean:
 
 install-headers:
 	mkdir -p $(SYSROOT)$(INCLUDEDIR)
-	cp -R --preserve=timestamps include/. $(SYSROOT)$(INCLUDEDIR)/.
+	cp -R include/. $(SYSROOT)$(INCLUDEDIR)/.
 
 install-libs: libk.a
 	mkdir -p $(SYSROOT)$(LIBDIR)
