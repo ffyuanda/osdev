@@ -26,6 +26,10 @@ stack_top:
 _start:
 	movl $stack_top, %esp
 
+	# push multiboot standard info
+	push %eax # magic number from multiboot
+	push %ebx # struct containing memory map from multiboot
+
 	# Call the global constructors.
 	call _init
 
